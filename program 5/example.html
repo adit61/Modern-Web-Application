@@ -1,0 +1,104 @@
+<html>
+<head>
+<script type="text/javascript" src="valid.js"></script>
+<link href="form_valid.css" rel="stylesheet" type="text/css" />	
+<style>
+    *{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input:invalid
+{
+   background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+}	
+.error
+{
+  color: red;
+}
+
+
+
+
+</style>
+<script>
+    var ue;
+    function validuser(ue) 
+    {
+    var un=document.getElementById("username").value;
+    let regex=/^[a-zA-Z0-9]{5,10}$/
+    if(un.length==0)
+    {
+        ue.innerHTML="Username cannot be empty";
+        return false;
+    }	
+    if(!un.match(regex))
+    {
+      ue.innerHTML="Username must contain only alphabets and min 5 and max 7";
+        return false;
+    }
+    ue.innerHTML="valid";
+    return true;
+    }
+    function validform()
+    {
+        var unerror= document.getElementById("usererror");
+        var buttonerror= document.getElementById("button-error");
+        if(!validuser(unerror))
+        {
+            buttonerror.style.display="block";
+            buttonerror.innerHTML="Valid fails";
+            return false;
+        }
+        buttonerror.innerHTML="Valid";
+    }
+    
+    </script>
+</head>
+<body>
+
+	<form id="form">
+	<label for="username">User Name</label>
+    <input type="text" name="username" id="username" placeholder="username" required onkeyup="validuser()"
+     />
+     <span class ="error" id="usererror"> Username is required and should contain only alphabets</span>
+     <br/>
+     <label for="email">Email</label>
+    <input
+        type="email"
+        name="email"
+        id="email" 
+        placeholder="abc@gmail.com"
+     />
+     <br/>
+     <label for="password">Password</label>
+    <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password here"
+     />
+     <br/>
+     <input type="button" onclick="validform()">submit</input>
+     <span class="error" id="button-error">Enter valid details</span>
+
+	</form>
+    
+</body>

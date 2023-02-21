@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prog5</title>
+    <style>
+
+
+    </style>
+    <script>
+        function user() {
+            var x = document.getElementById("username").value;
+            var r = /[a-z 0-9 A-Z]*[A-Z]+[a-z 0-9 A-Z]*[0-9]$/
+            if (!x.match(r)) {
+                var change = document.getElementById("erru");
+                change.innerHTML = "(Minimum length 4: Atleast one uppercase end with digit)";
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("erru");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+
+        function pass() {
+            var x = document.getElementById("password").value;
+            var r = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{6,}$/;
+
+            if (!x.match(r)) {
+                var change = document.getElementById("errpass");
+                change.innerHTML = "(10 digits)";
+                change.innerHTML = "(Minimum length 6 :Atleast 1 upercase letter one digit and one special character)";
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("errpass");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+
+        function mail() {
+            var x = document.getElementById("email").value;
+            var r = /[A-Z a-z 0-9 !#$%&*]+[@][a-z A-Z]*[.][a-z A-Z]/;
+
+            if (!x.match(r)) {
+                var change = document.getElementById("errmail");
+                change.innerHTML = "valid email";
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("errmail");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+
+        function pan() {
+            var x = document.getElementById("pan-card").value;
+            var r = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
+            if (!x.match(r)) {
+                var change = document.getElementById("errpan");
+                change.innerHTML = "Not a valid pan card";
+
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("errpan");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+
+        function aadhar() {
+            var x = document.getElementById("aadhaar-card").value;
+            var r = /^[0-9]{12}$/;
+
+            if (!x.match(r)) {
+                var change = document.getElementById("errad");
+                change.innerHTML = "(Enter valid 16 digit Aadhar number)";
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("errad");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+
+        function phon() {
+            var x = document.getElementById("phone").value;
+            var r = /^[0-9]{10}$/;
+
+            if (!x.match(r)) {
+                var change = document.getElementById("errph");
+                change.innerHTML = "(10 digits)";
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("errph");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+
+        function check() {
+            var x = document.getElementById("terms").value;
+
+            if (x.s) {
+                var change = document.getElementById("errph");
+                change.innerHTML = "(10 digits)";
+
+                change.style.color = "red";
+
+
+            }
+            else {
+                var change = document.getElementById("errph");
+                change.innerHTML = "&#10003";
+                change.style.color = "green";
+
+
+            }
+        }
+        function validateForm() {
+            const radios = document.getElementsByName('language');
+            const dropdown = document.getElementById('country');
+            const checkbox = document.getElementById('terms');
+
+            let radioChecked = false;
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    radioChecked = true;
+                    break;
+                }
+            }
+
+            const dropdownSelected = dropdown.value !== '';
+
+            const checkboxChecked = checkbox.checked;
+
+            if (!radioChecked) {
+                document.getElementById('errlang').style.color = 'red';
+            } else {
+                document.getElementById('errlang').style.color = 'white';
+            }
+
+            if (!dropdownSelected) {
+                document.getElementById('errc').style.color = 'red';
+            } else {
+                document.getElementById('errc').style.color = 'white';
+            }
+
+            if (!checkboxChecked) {
+                document.getElementById('errterm').style.color = 'red';
+            } else {
+                document.getElementById('errterm').style.color = 'white';
+
+            }
+
+            if (!radioChecked || !dropdownSelected || !checkboxChecked) {
+
+            }
+            else {
+                document.getElementById('final').innerHTML = 'LANGUAGE, COUNTRY VALIDATED!!!!';
+
+
+                document.getElementById('final').style.color = 'green';
+
+
+
+            }
+
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Fill Information</legend>
+            <div id="main">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" onkeyup="user()">
+                <span id="erru">(Minimum length 4: Atleast one uppercase end with digit)</span>
+                <br>
+                <br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" onkeyup="pass()">
+                <span id="errpass">(Minimum length 6 :Atleast 1 upercase letter one digit and one special
+                    character)</span>
+
+                <br>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" onkeyup="mail()">
+                <span id="errmail">Please enter a valid email id</span>
+
+                <br>
+                <br>
+                <label for="pan-card">PAN Card Number:</label>
+                <input type="text" id="pan-card" name="pan-card" onkeyup="pan()">
+                <span id="errpan">(First 5 Captial letters, then 4 nos and end with one capital letter)</span>
+
+                <br>
+                <br>
+                <label for="aadhaar-card">Aadhaar Card Number:</label>
+                <input type="text" id="aadhaar-card" name="aadhaar-card" onkeyup="aadhar()">
+                <span id="errad">(Enter valid 16 digit Aadhar number)</span>
+
+                <br>
+                <br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" onkeyup="phon()">
+                <span id="errph">(10 digits)</span>
+
+
+                <br>
+                <br>
+                <p>Choose your preferred language:</p>
+                <input type="radio" id="english" name="language" value="English">
+                <label for="english">English</label>
+                <input type="radio" id="hindi" name="language" value="Hindi">
+                <label for="hindi">Hindi</label>
+                <span id="errlang">Atleast 1 option must be chosen</span>
+
+                <br>
+                <br>
+                <label for="country">Select your country:</label>
+                <select id="country" name="country">
+                    <option value="">Please select</option>
+                    <option value="india">India</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+
+                </select>
+                <span id="errc">Compulsory</span>
+
+                <br>
+                <br>
+                <input type="checkbox" id="terms" name="terms">
+                <label for="terms">I agree to the terms and conditions</label>
+                <span id="errterm">Please accept to go ahead</span>
+
+                <br><br>
+                <input type="button" onclick="validateForm()" placeholder="submit"></button>
+
+                <span id="final"></span>
+
+            </div>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

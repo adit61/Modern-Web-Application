@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      
+      
+</head>
+<body>
+    <form>
+        <fieldset>
+          <legend>Personal Information:</legend>
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name"><br>
+          <br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email"><br>
+          <br>
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" name="password"><br>
+          <br>
+          <label for="dob">Date of Birth:</label><br>
+          <input type="date" id="dob" name="dob"><br>
+          <br>
+          <label for="gender">Gender:</label><br>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label><br>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label><br>
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">Other</label><br>
+        </fieldset>
+        <br>
+        <fieldset>
+          <legend>Contact Information:</legend>
+          <label for="phone">Phone:</label><br>
+          <input type="tel" id="phone" name="phone"><br>
+          <br>
+          <label for="address">Address:</label><br>
+          <textarea id="address" name="address"></textarea><br>
+          <br>
+          <label for="country">Country:</label><br>
+          <select id="country" name="country">
+            <option value="n" disabled selected>Select Country</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="mexico">Mexico</option>
+            <br>
+            <br>
+            <br>
+            
+          </select>
+          <br>
+
+          <select id="state">
+            <option value="Maharashtra" selected>maha</option>
+            <option value="Bihar" disabled>bihar</option>
+          </select>
+          <br>
+          <label for="range">How much do you like your country?</label>
+          <br>
+            <input type="range" name="range">
+        </fieldset>
+        <br>
+        <fieldset>
+          <legend>Additional Information:</legend>
+          <br>
+          <label for="color">Fav color</label>
+          <input type="color" name="color">
+          <br>
+          <br>
+          <label for="file">Pick Your photo</label>
+          <input type="file">
+
+          <br>
+          <br>
+          <label for="skills">Skills:</label><br>
+
+
+          <input list="skills" name="skills">
+          <datalist id="skills">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+            <option value="PHP">
+            <option value="C#"></option>
+          </datalist>
+          <br><br>
+
+
+          <label for="hobbies">Hobbies:</label><br>
+
+          <input type="checkbox" id="hiking" name="hiking" value="hiking">
+          <label for="hiking">Hiking</label><br>
+
+          <input type="checkbox" id="reading" name="reading" value="reading">
+          <label for="reading">Reading</label><br>
+
+          <input type="checkbox" id="gaming" name="gaming" value="gaming">
+          <label for="gaming">Gaming</label><br>
+          <br>
+         <br>
+        </fieldset>
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+      
+</body>
+</html>
